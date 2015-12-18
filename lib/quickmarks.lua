@@ -122,10 +122,11 @@ end
 -- Add quickmarking binds to normal mode
 local buf = lousy.bind.buf
 add_binds("normal", {
-    buf("^g[onw][a-zA-Z0-9]$",
+    buf("^g[onNw][a-zA-Z0-9]$",
         [[Jump to quickmark in current tab with `go{a-zA-Z0-9}`,
-        `gn{a-zA-Z0-9}` to open in new tab and or `gw{a-zA-Z0-9}` to open a
-        quickmark in a new window.]],
+        `gn{a-zA-Z0-9}` to open in new tab,
+        `gN{a-zA-Z0-9}` to open in a new background tab,
+        or `gw{a-zA-Z0-9}` to open a quickmark in a new window.]],
         function (w, b, m)
             local mode, token = string.match(b, "^g(.)(.)$")
             local uris = lousy.util.table.clone(get(token) or {})
@@ -133,6 +134,10 @@ add_binds("normal", {
             for c=1,m.count do
                 if mode == "w" then
                     window.new(uris)
+                elseif mode == "N" then
+                    for i, uri in ipairs(uris or {}) do
+                        w:new_tab(uri, false)
+                    end
                 else
                     for i, uri in ipairs(uris or {}) do
                         if mode == "o" and c == 1 and i == 1 then w:navigate(uri)
