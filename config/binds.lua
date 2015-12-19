@@ -196,7 +196,13 @@ add_binds("normal", {
     key({"Control"}, "d", "Scroll half page down.",
         function (w) w:scroll{ ypagerel =  0.5 } end),
 
+    key({}, "J", "Scroll half page down.",
+        function (w) w:scroll{ ypagerel =  0.5 } end),
+
     key({"Control"}, "u", "Scroll half page up.",
+        function (w) w:scroll{ ypagerel = -0.5 } end),
+
+    key({}, "K", "Scroll half page up.",
         function (w) w:scroll{ ypagerel = -0.5 } end),
 
     key({"Control"}, "f", "Scroll page down.",
