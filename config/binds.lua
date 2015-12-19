@@ -337,6 +337,12 @@ add_binds("normal", {
         function (w)
             local uri = string.gsub(w.view.uri or "", " ", "%%20")
             luakit.selection.clipboard = uri
+            w:notify("Copied uri: " .. uri)
+        end),
+
+    key({"Control"}, "c", "Copy (as in control-c control-v)",
+        function (w)
+            luakit.selection.clipboard = luakit.selection.primary
             w:notify("Yanked uri (to clipboard): " .. uri)
         end),
 
