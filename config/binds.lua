@@ -653,6 +653,12 @@ add_cmds({
                 w:notify("Dumped HTML to: " .. file)
             end
         end),
+
+    cmd("pr[ivate]", "Toggle private browsing",
+        function (w)
+            w.view.enable_private_browsing = not w.view.enable_private_browsing
+            w:update_tablist()
+        end),
 })
 
 -- vim: et:sw=4:ts=8:sts=4:tw=80
