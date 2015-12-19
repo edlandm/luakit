@@ -343,7 +343,7 @@ add_binds("normal", {
     key({"Control"}, "c", "Copy (as in control-c control-v)",
         function (w)
             luakit.selection.clipboard = luakit.selection.primary
-            w:notify("Yanked uri (to clipboard): " .. uri)
+            w:notify("Copied selection to clipboard.")
         end),
 
     -- Commands
