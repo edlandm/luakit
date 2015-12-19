@@ -428,6 +428,10 @@ add_binds("normal", {
     key({}, "d", "Close current tab (or `[count]` tabs).",
         function (w, m) for i=1,m.count do w:close_tab() end end, {count=1}),
 
+    key({}, "D", "Close current tab and move to previous tab.",
+        function (w) w:close_tab()
+            w:prev_tab() end),
+
     key({}, "<", "Reorder tab left `[count=1]` positions.",
         function (w, m)
             w.tabs:reorder(w.view, w.tabs:current() - m.count)
@@ -467,8 +471,8 @@ add_binds("normal", {
     buf("^ZQ$", "Quit and don't save the session.",
         function (w) w:close_win() end),
 
-    buf("^D$",  "Quit and don't save the session.",
-        function (w) w:close_win() end),
+    --buf("^D$",  "Quit and don't save the session.",
+        --function (w) w:close_win() end),
 
     -- Enter passthrough mode
     key({"Control"}, "z",
