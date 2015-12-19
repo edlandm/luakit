@@ -55,7 +55,7 @@ require "binds"
 ----------------------------------
 -- Optional user script loading --
 ----------------------------------
-
+require "plugins.private_browsing_tabs"
 require "webinspector"
 
 -- Add sqlite3 cookiejar
