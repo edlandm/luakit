@@ -454,7 +454,7 @@ add_binds("normal", {
     key({}, "R", "Reload current tab (skipping cache).",
         function (w) w:reload(true) end),
 
-    key({"Control"}, "c", "Stop loading the current tab.",
+    key({"Control"}, "s", "Stop loading the current tab.",
         function (w) w.view:stop() end),
 
     key({"Control", "Shift"}, "R", "Restart luakit (reloading configs).",
