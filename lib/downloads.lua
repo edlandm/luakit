@@ -41,7 +41,7 @@ local function next_download_id()
 end
 
 -- Default download directory
-default_dir = capi.xdg.download_dir or (os.getenv("HOME") .. "/downloads")
+default_dir = capi.xdg.download_dir or (os.getenv("HOME") .. "/Downloads")
 
 -- Setup signals on download module
 lousy.signal.setup(_M, true)
